@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Prototype | Team Arya</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SAME GLOBAL CSS AS INDEX -->
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* ========= PAGE SPECIFIC STYLES ONLY ========= */
+
+body{
+    background:#f4f7f6;
+}
+
+/* HERO SECTION */
+.proto-hero{
+    padding:110px 8% 100px;
+    background:linear-gradient(135deg,#16a34a,#0f3d2e);
+    color:white;
+    text-align:center;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+.proto-hero h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.proto-hero p{
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+/* PROTOTYPE SECTION */
+.prototype-dev{
+    padding:70px 8%;
+}
+
+.sprint-heading{
+    font-size:1.4rem;
+    color:#14532d;
+    margin-bottom:25px;
+    padding-left:15px;
+    border-left:6px solid #16a34a;
+}
+
+.sprint-gallery{
+    display:grid;
+    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+}
+
+.proto-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.proto-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(22,163,74,0.15);
+}
+
+.img-container{
+    overflow:hidden;
+    border-radius:8px;
+}
+
+.proto-card img{
+    width:100%;
+    height:auto;
+}
+
+.proto-card p{
+    margin-top:12px;
+    font-weight:600;
+    color:#14532d;
+}
+
+/* ========= VIDEO SECTION ========= */
+
+.video-section{
+    padding:70px 8%;
+    background:#fff;
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:3fr 2fr;
+    gap:30px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.video-wrapper{
+    background:#fff;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+    border:1px solid #eee;
+}
+
+/* LEFT VIDEO 3:2 */
+.video-left video{
+    width:100%;
+    aspect-ratio:3/2;
+    border-radius:8px;
+    background:black;
+}
+
+/* RIGHT VIDEO 9:16 */
+.video-right video{
+    width:100%;
+    aspect-ratio:9/16;
+    border-radius:8px;
+    background:black;
+}
+
+@media(max-width:850px){
+    .video-grid{
+        grid-template-columns:1fr;
+    }
+    .proto-hero h1{
+        font-size:2.3rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR (EXACT SAME STRUCTURE AS INDEX) ===== -->
+<nav class="navbar">
+<div class="logo">🌸 Flower Sorting</div>
+
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="theme.html">Theme</a></li>
+<li><a href="vision.html">Vision Board</a></li>
+
+<li class="dropdown">
+<a href="problem-identification.html">Problem Identification</a>
+<div class="dropdown-content">
+<a href="problem-identification.html#stakeholders">Stakeholder Map</a>
+<a href="problem-identification.html#questionnaire">Questionnaire</a>
+<a href="problem-identification.html#empathy-section">Empathy Map</a>
+<a href="problem-identification.html#persona-section">Persona</a>
+<a href="problem-identification.html#market">Market Survey</a>
+</div>
+</li>
+
+<li class="dropdown">
+<a href="engineering-design.html">Engineering Design</a>
+<div class="dropdown-content">
+<a href="engineering-design.html#requirements">Requirements</a>
+<a href="engineering-design.html#demand-wish">Prioritization</a>
+<a href="engineering-design.html#black-box">Black Box Model</a>
+<a href="engineering-design.html#functional-architecture">Functional Architecture</a>
+<a href="engineering-design.html#morphological-chart">Morphological Chart</a>
+<a href="engineering-design.html#conceptual-design">Conceptual Design</a>
+<a href="engineering-design.html#final3d">Finalized 3D Design</a>
+<a href="engineering-design.html#circuit">System Circuit</a>
+</div>
+</li>
+
+<li class="dropdown">
+<a href="prototype.html">Prototype</a>
+<div class="dropdown-content">
+<a href="#prototype">Physical Prototype</a>
+<a href="#working">Prototype Working</a>
+</div>
+</li>
+
+<li><a href="budget.html">Budget</a></li>
+<li><a href="thankyou.html">Thank You</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<header class="proto-hero">
+<h1>Physical Prototype</h1>
+<p>From CAD model to real-time automated sorting system.</p>
+</header>
+
+<!-- PROTOTYPE SECTION -->
+<section class="prototype-dev" id="prototype">
+
+<h2 style="text-align:center;margin-bottom:50px;color:#0f3d2e;font-size:2.4rem;">
+Prototype Development
+</h2>
+
+<div class="sprint-block">
+<h3 class="sprint-heading">Sprint 01 – Structure & Mechanics</h3>
+<div class="sprint-gallery">
+
+<div class="proto-card">
+<div class="img-container">
+<img src="assets/sprint1-1.jpg" alt="">
+</div>
+<p>Base Frame Setup</p>
+</div>
+
+<div class="proto-card">
+<div class="img-container">
+<img src="assets/sprint1-2.jpg" alt="">
+</div>
+<p>Mechanical Assembly</p>
+</div>
+
+</div>
+</div>
+
+<div class="sprint-block">
+<h3 class="sprint-heading">Sprint 02 – Automation Integration</h3>
+<div class="sprint-gallery">
+
+<div class="proto-card">
+<div class="img-container">
+<img src="assets/sprint2-1.jpg" alt="">
+</div>
+<p>Vision System Install</p>
+</div>
+
+<div class="proto-card">
+<div class="img-container">
+<img src="assets/sprint2-2.jpg" alt="">
+</div>
+<p>Sorting Mechanism</p>
+</div>
+
+</div>
+</div>
+
+<div class="sprint-block">
+<h3 class="sprint-heading">Final Prototype Model</h3>
+
+<div class="proto-card" style="max-width:900px;margin:auto;border:2px solid #16a34a;">
+<div class="img-container">
+<img src="assets/final-prototype.jpg" alt="">
+</div>
+<p>Complete Automated Flower Sorting Prototype</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section" id="working">
+
+<h3 style="text-align:center;margin-bottom:40px;color:#14532d;font-size:2.2rem;">
+Working Demonstration
+</h3>
+
+<div class="video-grid">
+
+<div class="video-wrapper video-left">
+<video controls>
+<source src="assets/prototype-main.mp4" type="video/mp4">
+</video>
+<p style="text-align:center;margin-top:12px;font-weight:600;color:#14532d;">
+Main Operation
+</p>
+</div>
+
+<div class="video-wrapper video-right">
+<video controls>
+<source src="assets/prototype-side.mp4" type="video/mp4">
+</video>
+<p style="text-align:center;margin-top:12px;font-weight:600;color:#14532d;">
+Mechanism Close-up
+</p>
+</div>
+
+</div>
+</section>
+
+<footer class="fixed-footer">
+© 2026 Team Arya | Mini Project – Automated Vision-Based Flower Sorting System
+</footer>
+
+</body>
+</html>

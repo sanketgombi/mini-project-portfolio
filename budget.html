@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Budget | Team Arya</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* RESET & BASE STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Tahoma, sans-serif; }
+        body { background: #f4f7f6; color: #1f2933; padding-top: 80px; overflow-x: hidden; }
+        
+        /* NAVBAR & DROPDOWN STYLES (MATCHES INDEX & PROTOTYPE) */
+        .navbar { position: fixed; top: 0; width: 100%; background: #0f3d2e; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.4rem; font-weight: bold; color: #eaffea; text-decoration: none; }
+        .nav-links { display: flex; list-style: none; align-items: center; }
+        .nav-links li { position: relative; }
+        .nav-links a { color: #eaffea; text-decoration: none; margin-left: 22px; font-size: 1rem; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: #a7f3d0; }
+
+        .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 220px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; border-radius: 8px; top: 100%; left: 22px; }
+        .dropdown-content a { color: #333 !important; padding: 12px 16px; text-decoration: none; display: block; margin-left: 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .dropdown-content a:hover { background-color: #f1f1f1; color: #16a34a !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* HERO SECTION */
+        .budget-hero { 
+            padding: 100px 8%; 
+            background: linear-gradient(135deg, #16a34a, #0f3d2e); 
+            color: white; 
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+        .budget-hero h1 { font-size: 3.5rem; margin-bottom: 15px; letter-spacing: -1px; }
+        .budget-hero p { font-size: 1.25rem; opacity: 0.9; max-width: 800px; margin: 0 auto; }
+
+        /* BUDGET CONTENT */
+        .budget-section { padding: 60px 8%; background: #f4f7f6; }
+        .budget-card { 
+            background: #fff; 
+            padding: 40px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        .budget-table th {
+            background-color: #0f3d2e;
+            color: white;
+            text-align: left;
+            padding: 15px;
+            font-size: 1rem;
+        }
+
+        .budget-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .budget-table tr:hover { background-color: #f9fefb; }
+
+        .total-row {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: #14532d;
+            background-color: #ecfdf5;
+        }
+
+        /* SUMMARY BOXES */
+        .budget-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 40px auto 0;
+        }
+
+        .summary-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 6px solid #16a34a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .summary-box:hover { transform: translateY(-5px); }
+
+        .summary-box h3 { color: #14532d; margin-bottom: 10px; font-size: 1.1rem; }
+        .summary-box p { font-size: 1.6rem; font-weight: bold; color: #16a34a; }
+
+        /* FOOTER */
+        .fixed-footer { background: #0f3d2e; color: #eaffea; text-align: center; padding: 40px 8%; font-size: 1rem; }
+
+        @media (max-width: 768px) {
+            .budget-hero h1 { font-size: 2.5rem; }
+            .budget-table th, .budget-table td { padding: 10px; font-size: 0.85rem; }
+            .budget-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🌸 Flower Sorting</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="theme.html">Theme</a></li>
+            <li><a href="vision.html">Vision Board</a></li>
+
+            <li class="dropdown">
+                <a href="problem-identification.html" class="dropbtn">Problem Identification</a>
+                <div class="dropdown-content">
+                    <a href="problem-identification.html#stakeholders">Stakeholder Map</a>
+                    <a href="problem-identification.html#questionnaire">Questionnaire</a>
+                    <a href="problem-identification.html#empathy-section">Empathy Map</a>
+                    <a href="problem-identification.html#persona-section">Persona</a>
+                    <a href="problem-identification.html#market">Market Survey</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="engineering-design.html" class="dropbtn">Engineering Design</a>
+                <div class="dropdown-content">
+                    <a href="engineering-design.html#requirements">Requirements</a>
+                    <a href="engineering-design.html#demand-wish">Prioritization</a>
+                    <a href="engineering-design.html#black-box">Black Box Model</a>
+                    <a href="engineering-design.html#functional-architecture">Functional Architecture</a>
+                    <a href="engineering-design.html#morphological-chart">Morphological Chart</a>
+                    <a href="engineering-design.html#conceptual-design">Conceptual Design</a>
+                    <a href="engineering-design.html#final3d">Finalized 3D Design</a>
+                    <a href="engineering-design.html#circuit">System Circuit</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="prototype.html" class="dropbtn">Prototype</a>
+                <div class="dropdown-content">
+                    <a href="prototype.html#prototype">Physical Prototype</a>
+                    <a href="prototype.html#working">Prototype Working</a>
+                </div>
+            </li>
+
+            <li><a href="budget.html">Budget</a></li>
+            <li><a href="thankyou.html">Thank You</a></li>
+        </ul>
+    </nav>
+
+    <header class="budget-hero">
+        <h1>Budget  Estimation</h1>
+        <p>A detailed breakdown of the components and materials invested in the Automatic Flower Sorting System.</p>
+    </header>
+
+    <section class="budget-section">
+        <div class="budget-card">
+            <h2 style="color: #0f3d2e; margin-bottom: 20px; text-align: center;">Bill of Materials (BOM)</h2>
+            
+        
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">Sl. No.</th>
+                        <th style="width: 22%;">Category</th>
+                        <th style="width: 50%;">Description</th>
+                        <th style="width: 20%;">Amount (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td><strong>Dept. Provided Electronics</strong></td>
+                        <td>Raspberry Pi 5 kit including board, display, power adapter, cables, memory card, case, and accessories.</td>
+                        <td>₹13,000</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td><strong>Team Finalized Electronics</strong></td>
+                        <td>Motors, sensors, humidifier module, relay modules, ESP32, camera, wiring, switches, indicators, and miscellaneous electronics.</td>
+                        <td>₹3,440</td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td><strong>Mechanical Materials</strong></td>
+                        <td>Frame, conveyor system, rollers, belt, trays, fasteners, supports, and mechanical accessories.</td>
+                        <td>₹27,080</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="3" style="text-align: right;">Grand Total Project Cost</td>
+                        <td>₹43,520</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="budget-summary">
+            <div class="summary-box">
+                <h3>Department Contribution</h3>
+                <p>₹13,000</p>
+            </div>
+            
+            <div class="summary-box">
+                <h3>Total Estimation</h3>
+                <p>₹43,520</p>
+            </div>
+        </div>
+    </section>
+
+    /section>
+  <style>
+    /* SIMPLE FIXED FOOTER */
+    .fixed-footer {
+        background: #0f3d2e;
+        color: #eaffea;
+        text-align: center;
+        padding: 20px 8%;
+        font-size: 0.95rem;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+</style>
+
+<footer class="fixed-footer">
+    © 2026 Team Arya | Mini Project – Automated Vision-Based Flower Sorting System
+</footer>

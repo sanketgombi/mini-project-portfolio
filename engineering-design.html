@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Engineering Design | Team Arya</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* INTEGRATED CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+        body { background: #f5f7f4; color: #1f2933; padding-top: 80px; }
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+        /* NAVBAR */
+        .navbar { position: fixed; top: 0; width: 100%; background: #0f3d2e; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; }
+        .logo { font-size: 1.4rem; font-weight: bold; color: #eaffea; text-decoration: none; }
+        .nav-links { display: flex; list-style: none; align-items: center; }
+        .nav-links li { position: relative; }
+        .nav-links a { color: #eaffea; text-decoration: none; margin-left: 22px; font-size: 1rem; font-weight: 500; cursor: pointer; }
+
+        /* DROPDOWN LOGIC */
+        .dropdown { position: relative; }
+        .dropbtn { color: #eaffea; margin-left: 22px; cursor: pointer; font-weight: 500; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 22px; background: white; min-width: 240px; border-radius: 14px; box-shadow: 0 18px 40px rgba(0,0,0,0.25); z-index: 2001; overflow: hidden; }
+        
+        /* Show menu when active class is added via JS */
+        .dropdown.active .dropdown-content { display: block; }
+        
+        .dropdown-content a { color: #14532d !important; padding: 14px 20px; display: block; text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid #f0f4f1; margin: 0 !important; }
+        .dropdown-content a:hover { background: #ecfdf5; }
+
+        /* EDP INTRO SECTION */
+        .edp-section { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; padding: 100px 8%; background: linear-gradient(135deg, #f0fdf4, #ffffff); }
+        .edp-intro h1 { font-size: 3rem; color: #14532d; margin-bottom: 20px; }
+        .edp-intro p { font-size: 1.1rem; line-height: 1.8; color: #166534; }
+        .edp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .edp-card { background: #ffffff; padding: 28px 30px; border-radius: 20px; box-shadow: 0 18px 40px rgba(0,0,0,0.15); position: relative; transition: 0.35s ease; }
+        .edp-card:hover { transform: translateY(-8px); }
+        .edp-card .step { position: absolute; top: -16px; right: 20px; background: #16a34a; color: #ffffff; width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+
+        /* REQUIREMENTS SECTION */
+        .requirements-section { padding: 100px 8%; background: linear-gradient(135deg, #e0f2fe, #f0fdf4); }
+        .req-pill { display: inline-block; background: #f97316; color: #ffffff; padding: 10px 22px; border-radius: 30px; font-weight: 700; margin-bottom: 18px; }
+        .req-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .req-card { background: #ffffff; padding: 30px; border-radius: 20px; box-shadow: 0 18px 40px rgba(0,0,0,0.1); position: relative; }
+        .req-id { position: absolute; top: -18px; right: 22px; width: 48px; height: 48px; background: #16a34a; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .req-source { display: inline-block; margin-top: 20px; padding: 6px 14px; font-size: 0.85rem; border-radius: 20px; font-weight: 600; background: #dcfce7; color: #166534; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">🌸 Flower Sorting</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="theme.html">Theme</a></li>
+            <li><a href="vision.html">Vision Board</a></li>
+            
+            <li class="dropdown">
+                <a href="problem-identification.html" class="dropbtn">Problem Identification</a>
+                <div class="dropdown-content">
+                    <a href="problem-identification.html#stakeholders">Stakeholder Map</a>
+                    <a href="problem-identification.html#questionnaire">Questionnaire</a>
+                    <a href="problem-identification.html#empathy-section">Empathy Map</a>
+                    <a href="problem-identification.html#persona-section">Persona</a>
+                    <a href="problem-identification.html#market">Market Survey</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="engineering-design.html" class="dropbtn">Engineering Design</a>
+                <div class="dropdown-content">
+                    <a href="engineering-design.html#requirements">Requirements</a>
+                    <a href="engineering-design.html#demand-wish">Prioritization</a>
+                    <a href="engineering-design.html#black-box">Black Box Model</a>
+                    <a href="engineering-design.html#functional-architecture">Functional Architecture</a>
+                    <a href="engineering-design.html#morphological-chart">Morphological Chart</a>
+                     <a href="engineering-design.html#conceptual-design">Conceptual Design</a>
+                    <a href="engineering-design.html#final3d">Finalized 3D Design</a>
+                    <a href="engineering-design.html#circuit">System Circuit</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="prototype.html" class="dropbtn">Prototype</a>
+                <div class="dropdown-content">
+                    <a href="prototype.html#prototype">Physical Prototype</a>
+                    <a href="prototype.html#working">Prototype Working</a>
+                </div>
+            </li>
+
+            <li><a href="budget.html">Budget</a></li>
+            <li><a href="thankyou.html">Thank You</a></li>
+        </ul>
+
+    </nav>
+
+    <section class="edp-section">
+        <div class="edp-intro">
+            <h1>Engineering Design Process</h1>
+            <p>A systematic approach used to translate user needs into functional engineering solutions for the automated flower sorting system.</p>
+        </div>
+
+        <div class="edp-grid">
+            <div class="edp-card">
+                <span class="step">01</span>
+                <h3>Requirements</h3>
+                <p>Identifying user needs and system constraints.</p>
+            </div>
+            <div class="edp-card">
+                <span class="step">02</span>
+                <h3>Prioritisation</h3>
+                <p>Ranking demands and wishes based on impact.</p>
+            </div>
+            <div class="edp-card">
+                <span class="step">03</span>
+                <h3>Modeling</h3>
+                <p>Abstracting system inputs and functional flow.</p>
+            </div>
+            <div class="edp-card">
+                <span class="step">04</span>
+                <h3>Architecture</h3>
+                <p>Defining the finalized mechanical structure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="requirements" class="requirements-section">
+        <div class="req-header">
+            <span class="req-pill">REQUIREMENTS</span>
+            <h2 style="font-size: 3rem; color: #14532d;">System Requirements</h2>
+        </div>
+
+        <div class="req-grid">
+            <div class="req-card">
+                <span class="req-id">R1</span>
+                <p>The system shall automatically detect and sort flowers based on color parameters.</p>
+                <span class="req-source">Client</span>
+            </div>
+            <div class="req-card">
+                <span class="req-id">R2</span>
+                <p>Include an integrated hydration module for post-sorting misting.</p>
+                <span class="req-source">Client</span>
+            </div>
+            <div class="req-card">
+                <span class="req-id">R8</span>
+                <p>Emergency stop features and safety guards to protect operators.</p>
+                <span class="req-source">Team</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.dropbtn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const parent = btn.parentElement;
+                // Close other dropdowns
+                document.querySelectorAll('.dropdown').forEach(dd => {
+                    if (dd !== parent) dd.classList.remove('active');
+                });
+                // Toggle current
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Close when clicking outside
+        window.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(dd => dd.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>
+<style>
+    /* DEMAND & WISH SECTION STYLES */
+    .demand-wish-section {
+        padding: 100px 8%;
+        background: #ffffff;
+    }
+
+    .dw-header {
+        max-width: 750px;
+        margin-bottom: 70px;
+    }
+
+    .dw-pill {
+        background: #16a34a;
+        color: #fff;
+        padding: 10px 24px;
+        border-radius: 30px;
+        font-weight: 700;
+        display: inline-block;
+        margin-bottom: 18px;
+    }
+
+    .dw-header h2 {
+        font-size: 3rem;
+        color: #14532d;
+        margin-bottom: 14px;
+    }
+
+    .dw-header p {
+        font-size: 1.1rem;
+        color: #166534;
+        line-height: 1.8;
+    }
+
+    /* SUMMARY CARDS */
+    .dw-summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
+        margin-bottom: 80px;
+    }
+
+    .summary-card {
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .summary-card.critical {
+        background: linear-gradient(135deg, #dc2626, #ef4444);
+        color: #fff;
+    }
+
+    .summary-card.optional {
+        background: linear-gradient(135deg, #2563eb, #38bdf8);
+        color: #fff;
+    }
+
+    /* BLOCK CATEGORIES */
+    .dw-block {
+        margin-bottom: 90px;
+    }
+
+    .block-title {
+        font-size: 2.3rem;
+        margin-bottom: 35px;
+        padding-left: 15px;
+    }
+
+    .block-title.demand { border-left: 10px solid #dc2626; color: #b91c1c; }
+    .block-title.wish { border-left: 10px solid #2563eb; color: #1d4ed8; }
+
+    /* GRID */
+    .dw-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .dw-card {
+        background: #ffffff;
+        border-radius: 22px;
+        padding: 28px;
+        position: relative;
+        box-shadow: 0 16px 38px rgba(0,0,0,0.1);
+        border: 1px solid #f0f0f0;
+        transition: 0.3s;
+    }
+
+    .dw-card:hover { transform: translateY(-8px); }
+
+    .dw-id {
+        position: absolute;
+        top: -18px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .dw-card.demand .dw-id { background: #dc2626; }
+    .dw-card.wish .dw-id { background: #2563eb; }
+
+    .priority-badge {
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    .p-high { background: #fee2e2; color: #991b1b; }
+    .p-low { background: #e0f2fe; color: #075985; }
+</style>
+
+<section id="demand-wish" class="demand-wish-section">
+
+    <div class="dw-header">
+        <span class="dw-pill">ENGINEERING DESIGN</span>
+        <h2>Demand & Wishes Analysis</h2>
+        <p>Prioritisation of system requirements based on criticality and feasibility.</p>
+    </div>
+
+    <div class="dw-summary">
+        <div class="summary-card critical">
+            <h3>Critical Demands</h3>
+            <p>Essential requirements that impact safety and core functionality.</p>
+        </div>
+        <div class="summary-card optional">
+            <h3>Wishes</h3>
+            <p>Desirable features that enhance user experience and efficiency.</p>
+        </div>
+    </div>
+
+    <div class="dw-block">
+        <h3 class="block-title demand">Demands (Essential)</h3>
+        <div class="dw-grid">
+            <div class="dw-card demand">
+                <span class="dw-id">R1</span>
+                <p>Automatic color-based flower sorting to ensure batch uniformity.</p>
+                <span class="priority-badge p-high">Priority 10</span>
+            </div>
+            <div class="dw-card demand">
+                <span class="dw-id">R4</span>
+                <p>Integrated hydration module to spray mist immediately after sorting.</p>
+                <span class="priority-badge p-high">Priority 10</span>
+            </div>
+            <div class="dw-card demand">
+                <span class="dw-id">R28</span>
+                <p>Emergency stop features to protect operators during use.</p>
+                <span class="priority-badge p-high">Priority 10</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="dw-block">
+        <h3 class="block-title wish">Wishes (Optional)</h3>
+        <div class="dw-grid">
+            <div class="dw-card wish">
+                <span class="dw-id">R10</span>
+                <p>Minimize processing time to preserve flower freshness.</p>
+                <span class="priority-badge p-low">Priority 6</span>
+            </div>
+            <div class="dw-card wish">
+                <span class="dw-id">R22</span>
+                <p>Visual or audio alerts indicating hydration spray levels.</p>
+                <span class="priority-badge p-low">Priority 6</span>
+            </div>
+        </div>
+    </div>
+
+</section>
+<style>
+    /* BLACK BOX SECTION STYLES */
+    .bb-section {
+        padding: 90px 8%;
+        background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+        text-align: center;
+    }
+
+    .bb-title {
+        font-size: 2.8rem;
+        color: #14532d;
+        margin-bottom: 10px;
+    }
+
+    .bb-subtitle {
+        color: #166534;
+        font-size: 1.1rem;
+        margin-bottom: 60px;
+    }
+
+    /* LAYOUT */
+    .bb-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    /* INPUT / OUTPUT CARDS */
+    .bb-card {
+        background: #ffffff;
+        padding: 28px;
+        border-radius: 18px;
+        box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+        text-align: left;
+        transition: transform 0.3s ease;
+    }
+
+    .bb-card:hover {
+        transform: translateY(-6px);
+    }
+
+    .bb-card h3 {
+        color: #15803d;
+        margin-bottom: 16px;
+        text-align: center;
+        border-bottom: 2px solid #f0fdf4;
+        padding-bottom: 10px;
+    }
+
+    .bb-card ul {
+        list-style: none;
+    }
+
+    .bb-card li {
+        padding: 10px 14px;
+        margin-bottom: 10px;
+        background: #f0fdf4;
+        border-radius: 10px;
+        color: #14532d;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+
+    /* BLACK BOX CORE WITH ANIMATION */
+    .bb-core {
+        background: linear-gradient(135deg, #22c55e, #15803d);
+        color: #ffffff;
+        padding: 45px;
+        border-radius: 22px;
+        box-shadow: 0 20px 40px rgba(34,197,94,0.4);
+        animation: glowPulse 3s infinite ease-in-out;
+    }
+
+    .bb-core h3 {
+        font-size: 1.8rem;
+        margin-bottom: 18px;
+        color: #ffffff;
+    }
+
+    .bb-core p {
+        line-height: 1.7;
+        font-size: 1rem;
+        margin-bottom: 12px;
+        color: #eaffea;
+    }
+
+    /* CENTER BOX GLOW EFFECT */
+    @keyframes glowPulse {
+        0% { box-shadow: 0 20px 40px rgba(34,197,94,0.35); transform: scale(1); }
+        50% { box-shadow: 0 25px 55px rgba(34,197,94,0.6); transform: scale(1.02); }
+        100% { box-shadow: 0 20px 40px rgba(34,197,94,0.35); transform: scale(1); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+        .bb-layout {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+
+
+<section id="black-box" class="bb-section">
+
+    <h2 class="bb-title">Black Box Model</h2>
+    <p class="bb-subtitle">
+        High-level abstraction of the automated vision-based flower sorting system
+    </p>
+
+    <div class="bb-layout">
+
+        <div class="bb-card input">
+            <h3>INPUT</h3>
+            <ul>
+                <li>⚡ Power Supply</li>
+                <li>🌸 Unsorted Flowers</li>
+                <li>🧑‍🌾 User Commands</li>
+                <li>💧 Water Source</li>
+            </ul>
+        </div>
+
+        <div class="bb-core">
+            <h3>BLACK BOX</h3>
+            <p>
+                Automated system that detects, analyzes, and sorts flowers based on 
+                <strong>color, size, and quality</strong>.
+            </p>
+            <p>
+                Reduces <strong>manual effort</strong>, minimizes 
+                <strong>post-harvest losses</strong>, and ensures 
+                <strong>uniform market-ready output</strong>.
+            </p>
+        </div>
+
+        <div class="bb-card output">
+            <h3>OUTPUT</h3>
+            <ul>
+                <li>✅ Sorted Flowers</li>
+                <li>📊 Batch Reports</li>
+                <li>📳 System Vibrations</li>
+                <li>🔊 Audible Feedback</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+<style>
+    /* FUNCTIONAL ARCHITECTURE SECTION STYLES */
+    .fa-section {
+        padding: 90px 8%;
+        background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+        text-align: center;
+    }
+
+    .fa-title {
+        font-size: 2.7rem;
+        color: #14532d;
+        margin-bottom: 10px;
+    }
+
+    .fa-subtitle {
+        color: #166534;
+        font-size: 1.1rem;
+        margin-bottom: 60px;
+    }
+
+    /* GRID LAYOUT */
+    .fa-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 35px;
+    }
+
+    /* COLUMN DESIGN */
+    .fa-column {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* CARD DESIGN */
+    .fa-card {
+        padding: 26px;
+        border-radius: 20px;
+        background: #ffffff;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        text-align: left;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        animation: faSlideUp 0.8s ease both;
+    }
+
+    .fa-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 22px 50px rgba(0,0,0,0.18);
+    }
+
+    .fa-card h4 {
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+        color: #1f2933;
+    }
+
+    .fa-card p {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        color: #4b5563;
+    }
+
+    /* ORIGINAL COLOR CODING */
+    .storage { border-left: 8px solid #22c55e; }
+    .image { border-left: 8px solid #0ea5e9; }
+    .packaging { border-left: 8px solid #f97316; }
+    .motion { border-left: 8px solid #6366f1; }
+    .processing { border-left: 8px solid #9333ea; }
+    .power { border-left: 8px solid #facc15; }
+    .display { border-left: 8px solid #14b8a6; }
+    .humidification { border-left: 8px solid #38bdf8; }
+
+    /* ENTRY ANIMATION */
+    @keyframes faSlideUp {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+        .fa-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+        .fa-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+
+
+<section id="functional-architecture" class="fa-section">
+
+    <h2 class="fa-title">Functional Architecture Design</h2>
+    <p class="fa-subtitle">
+        High-level functional interaction of subsystems involved in automated flower sorting
+    </p>
+
+    <div class="fa-grid">
+
+        <div class="fa-column">
+            <div class="fa-card storage">
+                <h4>F1 – Flower Storage</h4>
+                <p>Hand Input → Pour → Close Subsystem</p>
+            </div>
+
+            <div class="fa-card display">
+                <h4>F6 – Display</h4>
+                <p>User Interface Management & System Status Feedback</p>
+            </div>
+        </div>
+
+        <div class="fa-column">
+            <div class="fa-card image">
+                <h4>F4 – Image Processing</h4>
+                <p>Detect Flower Presence<br>Identify RGB Parameters<br>Analyze Bloom Quality</p>
+            </div>
+
+            <div class="fa-card power">
+                <h4>F3 – Power Unit</h4>
+                <p>Step Down Conversion<br>Voltage Regulation & Safety</p>
+            </div>
+        </div>
+
+        <div class="fa-column">
+            <div class="fa-card packaging">
+                <h4>F8 – Packaging</h4>
+                <p>Proximity Detection → Filling → Automated Packing</p>
+            </div>
+
+            <div class="fa-card humidification">
+                <h4>F7 – Humidification</h4>
+                <p>Process Feedback Signal<br>Active Moisture Regulation</p>
+            </div>
+        </div>
+
+        <div class="fa-column">
+            <div class="fa-card motion">
+                <h4>F5 – Motion Control</h4>
+                <p>Drive Motor Control<br>Trajectory Diversion Gates</p>
+            </div>
+
+            <div class="fa-card processing">
+                <h4>F2 – Processing Unit</h4>
+                <p>Central Logic Control<br>Sub-module Communication</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<style>
+    /* MORPHOLOGICAL CHART SECTION STYLES */
+    .morphological-container {
+        padding: 80px 5%;
+        background-color: #f0fdf4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .morph-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .morph-header h1 {
+        color: #14532d;
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+    }
+
+    /* THE GRID CONTAINER */
+    .chart-grid {
+        display: grid;
+        grid-template-columns: 200px repeat(2, 1fr) 4px repeat(3, 1fr);
+        gap: 15px;
+        width: 100%;
+        max-width: 1400px;
+    }
+
+    /* GRID HEADERS */
+    .grid-header {
+        background-color: #14532d;
+        color: white;
+        padding: 18px;
+        border-radius: 12px;
+        font-weight: 600;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* LEFT LABELS */
+    .subsystem-label {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        color: #14532d;
+        padding-left: 10px;
+        font-size: 1.1rem;
+    }
+
+    /* VERTICAL DIVIDER */
+    .v-divider {
+        background: rgba(20, 83, 45, 0.2);
+        grid-row: span 11;
+        border-radius: 2px;
+    }
+
+    /* ANIMATED COMPONENT CARDS */
+    .card {
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        min-height: 160px;
+        border: 1px solid rgba(0,0,0,0.05);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        cursor: pointer;
+    }
+
+    .card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 20px 30px rgba(20, 83, 45, 0.15);
+        border-color: #14532d;
+        z-index: 10;
+    }
+
+    .card img {
+        max-width: 100%;
+        max-height: 90px;
+        object-fit: contain;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover img { transform: scale(1.1); }
+
+    .card p {
+        margin: 0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-align: center;
+        color: #14532d;
+    }
+
+    .empty-space {
+        background: rgba(20, 83, 45, 0.03);
+        border-radius: 15px;
+        border: 1px dashed rgba(20, 83, 45, 0.1);
+    }
+
+    @media (max-width: 1200px) {
+        .chart-grid { grid-template-columns: 150px repeat(5, 1fr); }
+        .v-divider { display: none; }
+    }
+</style>
+
+
+
+<section id="morphological-chart" class="morphological-container">
+
+    <div class="morph-header">
+        <h1>Morphological Chart</h1>
+        <p>Concept Generation for Flower Sorting Mechanism Subsystems</p>
+    </div>
+
+    <div class="chart-grid">
+        <div class="grid-header">Subsystem</div>
+        <div class="grid-header">Mean 01</div>
+        <div class="grid-header">Mean 02</div>
+        <div class="v-divider"></div>
+        <div class="grid-header">Mean 03</div>
+        <div class="grid-header">Mean 04</div>
+        <div class="grid-header">Mean 05</div>
+
+        <div class="subsystem-label">Process</div>
+        <div class="card"><img src="images/esp8266.jpg"><p>ESP8266</p></div>
+        <div class="empty-space"></div>
+        <div class="card"><img src="images/esp32.jpg"><p>ESP 32</p></div>
+        <div class="card"><img src="images/raspberrypi.jpg"><p>Raspberry Pi 5</p></div>
+        <div class="empty-space"></div>
+
+        <div class="subsystem-label">Sensing</div>
+        <div class="card"><img src="images/spectroscopic.jpg"><p>Spectroscopic Sensor</p></div>
+        <div class="card"><img src="images/5mpcamera.jpg"><p>5mp Camera</p></div>
+        <div class="card"><img src="images/rgb_sensor.jpg"><p>RGB Sensor</p></div>
+        <div class="card"><img src="images/webcam.jpg"><p>Web Camera</p></div>
+        <div class="card"><img src="images/color_sensor.jpg"><p>Colour Sensor</p></div>
+
+        <div class="subsystem-label">Display</div>
+        <div class="card"><img src="images/oled.jpg"><p>OLED Display</p></div>
+        <div class="card"><img src="images/seven_segment.jpg"><p>7 Segment Module</p></div>
+        <div class="card"><img src="images/vfd.jpg"><p>VFD Display</p></div>
+        <div class="card"><img src="images/lcd.jpg"><p>LCD Display</p></div>
+        <div class="empty-space"></div>
+
+        <div class="subsystem-label">Motion</div>
+        <div class="card"><img src="images/pneumatic_cyl.jpg"><p>Pneumatic Cylinder</p></div>
+        <div class="card"><img src="images/stepper.jpg"><p>Stepper Motor</p></div>
+        <div class="card"><img src="images/robotic_arm.jpg"><p>Robotic Arm</p></div>
+        <div class="card"><img src="images/servo.jpg"><p>Servo Motor</p></div>
+        <div class="card"><img src="images/air_nozzle.jpg"><p>Air Nozzle</p></div>
+
+        <div class="subsystem-label">Mechanism</div>
+        <div class="card"><img src="images/pneumatics.jpg"><p>Pneumatics</p></div>
+        <div class="card"><img src="images/links.jpg"><p>2 Links</p></div>
+        <div class="card"><img src="images/gripper.jpg"><p>Gripper</p></div>
+        <div class="card"><img src="images/wiper.jpg"><p>Wiper</p></div>
+        <div class="card"><img src="images/air_pressure_nozzle.jpg"><p>Air Pressure Nozzle</p></div>
+
+        <div class="subsystem-label">Flower Storage</div>
+        <div class="card"><img src="images/vertical_storage.jpg"><p>Vertical Tube</p></div>
+        <div class="card"><img src="images/plastic_tray.jpg"><p>Plastic Tray</p></div>
+        <div class="card"><img src="images/hopper.jpg"><p>Hopper</p></div>
+        <div class="card"><img src="images/vibrator_bin.jpg"><p>Vibrator Bin</p></div>
+        <div class="empty-space"></div>
+
+        <div class="subsystem-label">Transport</div>
+        <div class="card"><img src="images/chain_conveyor.jpg"><p>Chain Conveyor</p></div>
+        <div class="empty-space"></div>
+        <div class="empty-space"></div>
+        <div class="card"><img src="images/rubber_conveyor.jpg"><p>Rubber Belt</p></div>
+        <div class="empty-space"></div>
+    </div>
+</section>
+<style>
+    /* CONCEPTUAL DESIGN SECTION STYLES */
+    .concept-section {
+        padding: 90px 8%;
+        background: linear-gradient(to right, #f0fdf4, #ecfdf5);
+    }
+
+    .concept-title {
+        text-align: center;
+        font-size: 2.7rem;
+        color: #14532d;
+        margin-bottom: 10px;
+    }
+
+    .concept-subtitle {
+        text-align: center;
+        color: #166534;
+        margin-bottom: 60px;
+        font-size: 1rem;
+    }
+
+    /* GRID LAYOUT */
+    .concept-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    /* COLUMN */
+    .concept-column {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    /* CARD */
+    .concept-box {
+        background: #ffffff;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+        transition: 0.4s ease;
+        position: relative;
+    }
+
+    /* IMAGE CONTAINER */
+    .concept-img {
+        width: 100%;
+        background: #ffffff;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 260px;
+    }
+
+    .concept-img img {
+        max-width: 100%;
+        max-height: 320px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        transition: transform 0.4s ease;
+    }
+
+    /* CONTENT */
+    .concept-box h3 {
+        padding: 20px 25px 0;
+        color: #166534;
+        font-size: 1.5rem;
+    }
+
+    .concept-box p {
+        padding: 12px 25px 25px;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #374151;
+    }
+
+    /* LEFT ACCENT BAR */
+    .concept-box::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 0%;
+        background: linear-gradient(#22c55e, #15803d);
+        transition: 0.5s;
+    }
+
+    .concept-box:hover::before {
+        height: 100%;
+    }
+
+    .concept-box:hover {
+        transform: translateY(-10px);
+    }
+
+    .concept-box:hover img {
+        transform: scale(1.04);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .concept-layout {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+
+
+<section id="conceptual-design" class="concept-section">
+
+    <h2 class="concept-title">Conceptual Design</h2>
+    <p class="concept-subtitle">
+        Different design concepts explored for the automated flower sorting system
+    </p>
+
+    <div class="concept-layout">
+
+        <div class="concept-column">
+
+            <div class="concept-box">
+                <div class="concept-img">
+                    <img src="assets/images/concept1.jpg" alt="Concept 01 Design">
+                </div>
+                <h3>Concept 01</h3>
+                <p>
+                    This system is an automated visual inspection and sorting setup where a camera captures images of items passing on a conveyor belt under controlled LED illumination. Image data is processed to analyze quality and a segregator redirects items into color-specific bins.
+                </p>
+            </div>
+
+            <div class="concept-box">
+                <div class="concept-img">
+                    <img src="assets/images/concept2.jpg" alt="Concept 02 Design">
+                </div>
+                <h3>Concept 02</h3>
+                <p>
+                    An automated color sorting system where objects move from a hopper onto a conveyor. A color sensor identifies each item, and servo-driven wipers divert it into the correct chute. An industrial robot may assist in high-speed handling.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="concept-column">
+
+            <div class="concept-box">
+                <div class="concept-img">
+                    <img src="assets/images/concept3.jpg" alt="Concept 03 Design">
+                </div>
+                <h3>Concept 03</h3>
+                <p>
+                    A conveyor-based sorting system using proximity sensors to detect objects. Sensor signals activate solenoid plungers that direct items into designated chutes. This allows efficient real-time classification based on size or color.
+                </p>
+            </div>
+
+            <div class="concept-box">
+                <div class="concept-img">
+                    <img src="assets/images/concept4.jpg" alt="Concept 04 Design">
+                </div>
+                <h3>Concept 04</h3>
+                <p>
+                    A DC motor–driven rack and pinion based sorting mechanism. Sensor data determines flower quality, and motor-driven linear motion shifts sorting gates accordingly, ensuring smooth and gentle handling for delicate products.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<style>
+    /* FINALIZED DESIGN STYLES */
+    .final3d-section {
+        padding: 100px 8%;
+        background: #ffffff;
+    }
+
+    .final3d-header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 60px;
+    }
+
+    .final3d-header h2 {
+        font-size: 3rem;
+        color: #14532d;
+        margin-bottom: 20px;
+    }
+
+    /* TWO-COLUMN DRAWING LAYOUT */
+    .drawing-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .drawing-card {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.4s ease;
+        border: 1px solid #e2e8f0;
+    }
+
+    .drawing-card:hover {
+        transform: translateY(-10px);
+        border-color: #16a34a;
+    }
+
+    .drawing-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        background: white;
+    }
+
+    .drawing-card h3 {
+        color: #14532d;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .drawing-card p {
+        font-size: 0.95rem;
+        color: #4b5563;
+        line-height: 1.6;
+    }
+
+    /* SPECIFICATION FOOTER */
+    .design-specs {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .spec-pill {
+        background: #ecfdf5;
+        color: #166534;
+        padding: 10px 25px;
+        border-radius: 50px;
+        font-weight: 600;
+        border: 1px solid #bbf7d0;
+    }
+
+    @media (max-width: 900px) {
+        .drawing-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<section id="final3d" class="final3d-section">
+    
+    <div class="final3d-header">
+        <h2>Finalized Design & Engineering Drawings</h2>
+        <p>
+            The transition from conceptual modeling to high-fidelity engineering. 
+            Below are the finalized isometric visualization and the detailed technical 
+            specifications for manufacturing.
+        </p>
+    </div>
+
+    <div class="drawing-grid">
+        
+        <div class="drawing-card">
+            
+            <img src="assets/final-3d-model.png" alt="Final 3D Model">
+            <h3>Final 3D Model</h3>
+            <p>
+                Isometric visualization of the complete assembly, showcasing the conveyor 
+                integration, camera housing, and sorting bins.
+            </p>
+        </div>
+
+        <div class="drawing-card">
+            
+            <img src="assets/final-technical-drawing.png" alt="Final Technical Drawing">
+            <h3>Final Technical Drawing</h3>
+            <p>
+                Detailed SolidWorks technical drawing featuring orthographic views, 
+                precise dimensions, and bill of materials (BOM).
+            </p>
+        </div>
+
+    </div>
+
+    <div class="design-specs">
+        <div class="spec-pill">Scale: 1:5</div>
+        <div class="spec-pill">Software: SolidWorks 2024</div>
+        <div class="spec-pill">Material: Aluminum 6061-T6</div>
+        <div class="spec-pill">Tolerance: ±0.5mm</div>
+    </div>
+
+</section>
+<style>
+    /* SYSTEM CIRCUIT SECTION STYLES */
+    .circuit-section {
+        padding: 100px 8%;
+        background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    }
+
+    .circuit-header {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .circuit-header h2 {
+        font-size: 3rem;
+        color: #1e293b;
+        margin-bottom: 20px;
+    }
+
+    .circuit-container {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 50px;
+        align-items: center;
+    }
+
+    /* CIRCUIT IMAGE BOX */
+    .circuit-visual {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        border: 2px solid #e2e8f0;
+    }
+
+    .circuit-visual img {
+        width: 100%;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    .circuit-visual:hover img {
+        transform: scale(1.02);
+    }
+
+    /* COMPONENT DETAILS */
+    .circuit-details {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .comp-card {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 8px solid #3b82f6; /* Circuit Blue */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .comp-card h4 {
+        color: #1e293b;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .comp-card p {
+        font-size: 0.9rem;
+        color: #64748b;
+        line-height: 1.5;
+    }
+
+    /* CIRCUIT TAGS */
+    .logic-tag {
+        display: inline-block;
+        background: #dbeafe;
+        color: #1e40af;
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    @media (max-width: 1000px) {
+        .circuit-container { grid-template-columns: 1fr; }
+    }
+</style>
+
+<section id="circuit" class="circuit-section">
+    
+    <div class="circuit-header">
+        <h2>System Circuitry</h2>
+        <p>The electronic architecture coordinating power distribution, signal processing, and mechanical actuation.</p>
+    </div>
+
+    <div class="circuit-container">
+        
+        <div class="circuit-visual">
+            
+            <img src="assets/circuit-diagram.png" alt="System Circuit Schematic">
+        </div>
+
+        <div class="circuit-details">
+            
+            <div class="comp-card" style="border-color: #3b82f6;">
+                <h4>🧠 Control Hub</h4>
+                <p>The central microcontroller (Raspberry Pi/ESP32) processes vision data and triggers logic-level signals for sorting.</p>
+                <span class="logic-tag">Digital Logic</span>
+            </div>
+
+            <div class="comp-card" style="border-color: #ef4444;">
+                <h4>⚡ Power Regulation</h4>
+                <p>Voltage regulators convert main power to stable 5V/12V rails to protect sensitive electronics and drive motors.</p>
+                <span class="logic-tag">Step-Down Module</span>
+            </div>
+
+            <div class="comp-card" style="border-color: #10b981;">
+                <h4>⚙️ Actuation Drive</h4>
+                <p>Motor drivers (L298N/Servo) translate low-current logic signals into high-current pulses for mechanical movement.</p>
+                <span class="logic-tag">PWM Control</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+</section>
+  <style>
+    /* SIMPLE FIXED FOOTER */
+    .fixed-footer {
+        background: #0f3d2e;
+        color: #eaffea;
+        text-align: center;
+        padding: 20px 8%;
+        font-size: 0.95rem;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+</style>
+
+<footer class="fixed-footer">
+    © 2026 Team Arya | Mini Project – Automated Vision-Based Flower Sorting System
+</footer>

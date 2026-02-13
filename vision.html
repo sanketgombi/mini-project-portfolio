@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vision Board | Team Arya</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* INTEGRATED CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+        body { background: #f5f7f4; color: #1f2933; padding-top: 80px; }
+        html { scroll-behavior: smooth; }
+
+        /* NAVBAR */
+        .navbar { position: fixed; top: 0; width: 100%; background: #0f3d2e; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; }
+        .logo { font-size: 1.4rem; font-weight: bold; color: #eaffea; text-decoration: none; }
+        .nav-links { display: flex; list-style: none; align-items: center; }
+        .nav-links li { position: relative; }
+        .nav-links a { color: #eaffea; text-decoration: none; margin-left: 22px; font-size: 1rem; font-weight: 500; cursor: pointer; }
+        .nav-links a:hover { color: #a7f3d0; }
+
+        /* DROPDOWN */
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 22px; background: white; min-width: 230px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); padding: 10px 0; z-index: 2001; }
+        .dropdown.active .dropdown-content { display: block; }
+        .dropdown-content a { color: #14532d !important; padding: 10px 20px; margin: 0; display: block; font-size: 0.9rem; border-bottom: 1px solid #f0f4f1; }
+        .dropdown-content a:last-child { border-bottom: none; }
+
+        /* VISION BOARD STYLES */
+        .vision-section { padding: 90px 8%; background: linear-gradient(180deg, #f0fdf4, #ffffff); }
+        .vision-title { text-align: center; margin-bottom: 60px; }
+        .vision-title h2 { font-size: 3rem; color: #14532d; }
+        .vision-title p { margin-top: 12px; font-size: 1.1rem; color: #166534; }
+        .vision-highlight { background: #ecfdf5; border-left: 10px solid #16a34a; padding: 35px 45px; border-radius: 16px; margin-bottom: 70px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .vision-highlight h3 { font-size: 2rem; color: #14532d; margin-bottom: 18px; }
+        .vision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 35px; }
+        .vision-card { background: #ffffff; border-radius: 20px; padding: 35px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); transition: 0.3s ease; }
+        .vision-card:hover { transform: translateY(-10px); box-shadow: 0 20px 45px rgba(0,0,0,0.2); }
+        .vision-card h4 { font-size: 1.6rem; color: #14532d; margin-bottom: 18px; }
+        .vision-card ul { padding-left: 18px; }
+        .vision-card li { font-size: 1rem; line-height: 1.7; margin-bottom: 10px; }
+
+        .fixed-footer { background: #0f3d2e; color: #eaffea; text-align: center; padding: 20px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">🌸 Flower Sorting</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="theme.html">Theme</a></li>
+            <li><a href="vision.html">Vision Board</a></li>
+
+            <li class="dropdown">
+                <a class="dropbtn">Problem Identification</a>
+                <div class="dropdown-content">
+                    <a href="problem-identification.html#stakeholders">Stakeholder Map</a>
+                    <a href="problem-identification.html#questionnaire">Questionnaire</a>
+                    <a href="problem-identification.html#empathy-section">Empathy Map</a>
+                    <a href="problem-identification.html#persona-section">Persona</a>
+                    <a href="problem-identification.html#market">Market Survey</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="engineering-design.html" class="dropbtn">Engineering Design</a>
+                <div class="dropdown-content">
+                    <a href="engineering-design.html#requirements">Requirements</a>
+                    <a href="engineering-design.html#demand-wish">Prioritization</a>
+                    <a href="engineering-design.html#black-box">Black Box Model</a>
+                    <a href="engineering-design.html#functional-architecture">Functional Architecture</a>
+                    <a href="engineering-design.html#morphological-chart">Morphological Chart</a>
+                     <a href="engineering-design.html#conceptual-design">Conceptual Design</a>
+                    <a href="engineering-design.html#final3d">Finalized 3D Design</a>
+                    <a href="engineering-design.html#circuit">System Circuit</a>
+                </div>
+            </li>
+
+            <li><a href="prototype.html">Prototype</a></li>
+            <li><a href="budget.html">Budget</a></li>
+            <li><a href="thankyou.html">Thank You</a></li>
+        </ul>
+    </nav>
+
+    <section id="vision" class="vision-section">
+        <div class="vision-title">
+            <h2>Product Vision Board</h2>
+            <p>A structured overview of the purpose, users, needs, solution, and business goals.</p>
+        </div>
+
+        <div class="vision-highlight">
+            <h3>Purpose & Positive Change</h3>
+            <p><strong>Purpose:</strong> To simplify and standardize post-harvest flower sorting so farmers earn higher quality value.</p>
+            <p><strong>Positive Change:</strong> Reduces manual labor dependency and ensures uniform quality for small farmers.</p>
+        </div>
+
+        <div class="vision-grid">
+            <div class="vision-card">
+                <h4>Target Group</h4>
+                <ul>
+                    <li>Flower farmers & Vendors</li>
+                    <li>Floriculture cooperatives</li>
+                    <li>Small-scale horticulture units</li>
+                </ul>
+            </div>
+
+            <div class="vision-card">
+                <h4>Needs</h4>
+                <ul>
+                    <li>Inconsistent quality sorting</li>
+                    <li>High labor shortages</li>
+                    <li>Post-harvest wastage</li>
+                </ul>
+            </div>
+
+            <div class="vision-card">
+                <h4>Product</h4>
+                <ul>
+                    <li>Gentle mechanical handling</li>
+                    <li>Low-cost automation</li>
+                    <li>Modular rural design</li>
+                </ul>
+            </div>
+
+            <div class="vision-card">
+                <h4>Business Goals</h4>
+                <ul>
+                    <li>Standardized grading profit</li>
+                    <li>Early farmer adoption</li>
+                    <li>Scalable production models</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="fixed-footer">
+        © 2026 Team Arya | Mini Project – Automated Vision-Based Flower Sorting System
+    </footer>
+
+    <script>
+        document.querySelectorAll('.dropbtn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const parent = btn.parentElement;
+                document.querySelectorAll('.dropdown').forEach(dd => {
+                    if (dd !== parent) dd.classList.remove('active');
+                });
+                parent.classList.toggle('active');
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(dd => dd.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>

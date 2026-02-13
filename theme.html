@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theme | Team Arya</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* INTEGRATED CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+        body { background: #f5f7f4; color: #1f2933; padding-top: 80px; }
+        html { scroll-behavior: smooth; }
+
+        /* NAVBAR */
+        .navbar { position: fixed; top: 0; width: 100%; background: #0f3d2e; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; }
+        .logo { font-size: 1.4rem; font-weight: bold; color: #eaffea; text-decoration: none; }
+        .nav-links { display: flex; list-style: none; align-items: center; }
+        .nav-links li { position: relative; }
+        .nav-links a { color: #eaffea; text-decoration: none; margin-left: 22px; font-size: 1rem; font-weight: 500; cursor: pointer; }
+        .nav-links a:hover { color: #a7f3d0; }
+
+        /* DROPDOWN */
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: white; min-width: 230px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); padding: 10px 0; z-index: 2001; }
+        .dropdown.active .dropdown-content { display: block; }
+        .dropdown-content a { color: #14532d !important; padding: 10px 20px; margin: 0; display: block; font-size: 0.9rem; border-bottom: 1px solid #f0f4f1; }
+        .dropdown-content a:last-child { border-bottom: none; }
+
+        /* THEME SECTION STYLES */
+        .theme-wrapper { padding: 80px 8%; background: #f0fdf4; }
+        .theme-header { text-align: center; margin-bottom: 60px; }
+        .theme-header h2 { font-size: 3rem; color: #14532d; }
+        .theme-header p { margin-top: 10px; color: #166534; }
+
+        .theme-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 25px; margin-bottom: 80px; }
+        .theme-card { background: #fff; padding: 15px; border-radius: 18px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.12); transition: 0.3s; }
+        .theme-card:hover { transform: translateY(-8px); }
+        .theme-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 14px; }
+        .theme-card h4 { margin-top: 12px; color: #14532d; }
+        .theme-card span { font-size: 0.9rem; color: #4d7c0f; }
+
+        .intro-section { padding: 60px 0; }
+        .intro-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+        .intro-image img { width: 100%; max-height: 420px; object-fit: cover; border-radius: 22px; box-shadow: 0 20px 45px rgba(0,0,0,0.25); }
+        .intro-text h2 { font-size: 2.5rem; color: #14532d; margin-bottom: 25px; }
+        .intro-text p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 18px; }
+
+        .theme-section { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; margin-top: 80px; }
+        .theme-section.reverse { grid-template-columns: 1fr 1.2fr; }
+        .theme-text h3 { font-size: 2rem; margin-bottom: 20px; color: #14532d; }
+        .theme-image img { width: 100%; max-height: 420px; object-fit: cover; border-radius: 20px; box-shadow: 0 18px 40px rgba(0,0,0,0.25); }
+
+        .fixed-footer { background: #0f3d2e; color: #eaffea; text-align: center; padding: 20px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">🌸 Flower Sorting</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="theme.html">Theme</a></li>
+            <li><a href="vision.html">Vision Board</a></li>
+
+            <li class="dropdown">
+                <a class="dropbtn">Problem Identification</a>
+                <div class="dropdown-content">
+                    <a href="problem-identification.html#stakeholders">Stakeholder Map</a>
+                    <a href="problem-identification.html#questionnaire">Questionnaire</a>
+                    <a href="problem-identification.html#empathy-section">Empathy Map</a>
+                    <a href="problem-identification.html#persona-section">Persona</a>
+                    <a href="problem-identification.html#market">Market Survey</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="engineering-design.html" class="dropbtn">Engineering Design</a>
+                <div class="dropdown-content">
+                    <a href="engineering-design.html#requirements">Requirements</a>
+                    <a href="engineering-design.html#demand-wish">Prioritization</a>
+                    <a href="engineering-design.html#black-box">Black Box Model</a>
+                    <a href="engineering-design.html#functional-architecture">Functional Architecture</a>
+                    <a href="engineering-design.html#morphological-chart">Morphological Chart</a>
+                     <a href="engineering-design.html#conceptual-design">Conceptual Design</a>
+                    <a href="engineering-design.html#final3d">Finalized 3D Design</a>
+                    <a href="engineering-design.html#circuit">System Circuit</a>
+                </div>
+            </li>
+            <li><a href="prototype.html">Prototype</a></li>
+            <li><a href="budget.html">Budget</a></li>
+            <li><a href="thankyou.html">Thank You</a></li>
+        </ul>
+    </nav>
+
+    <section id="theme" class="theme-wrapper">
+
+        <div class="theme-header">
+            <h2>Horticulture</h2>
+            <p>Innovation, sustainability, and smart cultivation practices</p>
+        </div>
+
+        <div class="theme-cards">
+            <div class="theme-card">
+                <img src="assets/images/theme/flower-cultivation.jpg" alt="Flower Cultivation">
+                <h4>Flower Cultivation</h4>
+                <span>horticulture farms</span>
+            </div>
+            <div class="theme-card">
+                <img src="assets/images/theme/post-harvest.jpg" alt="Post Harvest Handling">
+                <h4>Post-Harvest Handling</h4>
+                <span>manual to automated</span>
+            </div>
+            <div class="theme-card">
+                <img src="assets/images/theme/vision-inspection.jpg" alt="Computer Vision">
+                <h4>Vision-Based Inspection</h4>
+                <span>camera & AI</span>
+            </div>
+            <div class="theme-card">
+                <img src="assets/images/theme/flower-sorting.jpg" alt="Flower Sorting">
+                <h4>Automated Sorting</h4>
+                <span>size & color grading</span>
+            </div>
+            <div class="theme-card">
+                <img src="assets/images/theme/packaging.jpg" alt="Quality Packaging">
+                <h4>Quality Grading</h4>
+                <span>market-ready output</span>
+            </div>
+        </div>
+
+        <div class="intro-container">
+            <div class="intro-image">
+                <img src="assets/images/theme/intro-horticulture.jpg" alt="Horticulture and flower cultivation">
+            </div>
+            <div class="intro-text">
+                <h2>Introduction</h2>
+                <p>
+                    Our mini-project theme focuses on horticulture, a vital field that
+                    emphasizes the cultivation of fruits, vegetables, flowers, and
+                    ornamental plants. Horticulture plays a crucial role in improving
+                    nutrition, beautifying surroundings, and enhancing quality of life.
+                </p>
+                <p>
+                    This theme combines science, creativity, and sustainability, bringing
+                    technology and nature together to create efficient cultivation systems.
+                </p>
+                <p>
+                    Through this project, we explore how engineering, automation, and smart
+                    technologies can enhance productivity and environmental balance.
+                </p>
+            </div>
+        </div>
+
+        <div class="theme-section reverse">
+            <div class="theme-text">
+                <h3>Project Goals and Motivation</h3>
+                <p>
+                    The goal of this project is to apply engineering and innovation to improve
+                    horticultural practices by reducing manual effort and optimizing resource
+                    utilization.
+                </p>
+                <p>
+                    We aim to design sustainable, efficient, and scalable solutions that help
+                    increase productivity and promote eco-friendly cultivation methods.
+                </p>
+                <p>
+                    By applying our technical knowledge, we strive to contribute to modern
+                    agriculture and sustainable development.
+                </p>
+            </div>
+            <div class="theme-image">
+                <img src="assets/images/theme/flower-sorting-goals.jpg" alt="Vision-based flower sorting system">
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="fixed-footer">
+        © 2026 Team Arya | Mini Project – Automated Vision-Based Flower Sorting System
+    </footer>
+
+    <script>
+        document.querySelectorAll('.dropbtn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const parent = btn.parentElement;
+                document.querySelectorAll('.dropdown').forEach(dd => {
+                    if (dd !== parent) dd.classList.remove('active');
+                });
+                parent.classList.toggle('active');
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(dd => dd.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>
